@@ -67,6 +67,8 @@ trap 'kill ${!}; sigterm_handler' SIGTERM
 
 /usr/sbin/vernemq start
 pid=$(ps aux | grep '[b]eam.smp' | awk '{print $2}')
+vmq-admin plugin disable --name=vmq_acl
+vmq-admin plugin disable --name=vmq_passwd
 
 while true
 do
